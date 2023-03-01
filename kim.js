@@ -1,27 +1,67 @@
-let first = parseFloat(document.getElementById('firstNum').value);
-let second = parseFloat(document.getElementById('secondNum').value);
+let users = [];
+
 let result = document.getElementById('result');
+let button = document.querySelectorAll("button");
+let output = 0;
 
-let multiply = document.getElementById('multiply');
-let divide = document.getElementById('divide');
-let adds = document.getElementById('add');
-let minus = document.getElementById('minus');
+for(let item of button){
+    item.addEventListener("click",function() {
+        let firstNum = document.getElementById("firstNum").value;
+        let secondNum = document.getElementById("secondNum").value;
+
+        calculate(firstNum, secondNum, this.innerHTML)
+    })
+}
+
+function calculate(firstnum, secondnum, operator) {
+    result.innerHTML = eval(`${firstnum}${operator}${secondnum}`);
+}
 
 
-multiply.addEventListener('click', function(){
-    let multiplY = 0;
-    multiplY = first.value * second.value;
-    console.log(multiplY);
+//Login sample
+loadLocal();
+let btn_save = document.getElementById("btn_save");
+let btn_login = document.getElementById("btn_login");
+
+btn_save.addEventListener("click", () => {
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    addUser(username, password);
 })
 
-divide.addEventListener('click',function(){
+btn_login.addEventListener("click", () => {
+    let username = document.getElementById("username1").value;
+    let password = document.getElementById("password1").value;
+    login(username, password);
+});
 
-})
+function addUser(username, password){
+    let user = {
+        username: username,
+        password: password
+    }
+    users.push(user);
+    saveLocalStorage();
+}
 
-adds.addEventListener('click',function(){
+function login(username, password){
+    let isExisting = users.find(m => m.username == username && m.password == password);
 
-})
+    if(isExisting) alert("hey");
+    else alert("shit");
+}
 
-minus.addEventListener('click',function(){
+function saveLocalStorage() {
+    if (localStorage.getItem("users") === null) 
+        localStorage.setItem('users', "");
+    
+    let _user = JSON.stringify(users);
+    localStorage.setItem('users', _user);
+}
 
-})
+function loadLocal() {
+    let localData = localStorage.getItem("users");
+
+    if(localData)
+        users = JSON.parse(localData);
+}

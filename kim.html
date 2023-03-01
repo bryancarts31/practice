@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-        <input type="text" id="firstNum">
-        <input type="text" id="secondNum">
+    <input type="text" id="firstNum" />
+    <input type="text" id="secondNum" />
 
-        <div class="operators">
-            <button id="multiply">Multiply</button>
-            <button id="divide">Divide</button>
-            <button id="add">Addition</button>
-            <button id="sub">Subtraction</button>
-        </div>
+    <div id="operators" style="margin:10px 0px">
+        <!-- <button id="multiply" onclick="myMultiply(firstNum,secondNum,result)">Multiply</button>
+        <button id="divide" onclick="myDivide(firstNum,secondNum,result)">Divide</button>
+        <button id="minus" onclick="myMinus(firstNum,secondNum,result)">Minus</button>
+        <button id="add" onclick="myAdd(firstNum,secondNum,result)">Add</button> -->
 
-        <p id="result"></p>
+        <button id="multiply" >*</button>
+        <button id="divide">/</button>
+        <button id="minus">-</button>
+        <button id="add">+</button>
+    </div>
+
+    <p id="result"></p>
+
+
+    <h2>Register</h2>
+    <input id="username" type="text" />
+    <input id="password" type="password" />
+    <input type="button" value="Save" id="btn_save"/>
+
+
+    <h2>Login</h2>
+    <input id="username1" type="text" />
+    <input id="password1" type="password" />
+    <input type="button" value="Save" id="btn_login"/>
+
     <script src="kim.js"></script>
 </body>
+
 </html>
