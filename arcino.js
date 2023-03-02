@@ -1,2 +1,28 @@
-let btn = document.getElementById('.btn').value
-let result ="";
+let result = "";
+
+
+function add() {
+
+    result += result
+    console.log(result)
+}
+function subtract() {
+
+    result -= result
+    console.log(result)
+}
+function multiply() {
+
+    result *= result
+    console.log(result)
+}
+function divide() {
+
+    result /= result
+    console.log(result)
+}
+function myFunction() {
+
+
+
+}
